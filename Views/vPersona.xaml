@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JJAENT5.Views.vPersona"
+             Title="vPersona">
+    
+
+        <VerticalStackLayout>
+            <Label 
+            Text="Base de datos sqlite"
+            FontSize="24"
+            HorizontalOptions="CenterAndExpand"/>
+            <Entry x:Name="TxtName"
+               Placeholder="Ingrese un nombre"/>
+
+                <Button x:Name="btnInsertar"
+                    Text="Insertar"
+                    Clicked="btnInsertar_Clicked"
+                    
+                    />
+                <Label x:Name="lblStatus"
+               
+                   TextColor="blue"/>
+                <Button x:Name="btnObtener"
+                    Text="Listar personas"
+                    Clicked="btnObtener_Clicked"/>
+
+        <CollectionView x:Name="ListarPersona">
+
+            <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                <Grid Padding="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                       
+
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Id}" Grid.Column="0"/>
+                                <Label Text="{Binding Name}" Grid.Column="1"/>
+                            <Button Text="Eliminar" Clicked="btnEliminar_Clicked" Grid.Column="2" CommandParameter="{Binding Id}"/>
+                            <Button Text="Editar" Clicked="btnEditar_Clicked" Grid.Column="3" CommandParameter="{Binding Id}"/>
+
+                        </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+            
+
+</VerticalStackLayout>
+</ContentPage>
